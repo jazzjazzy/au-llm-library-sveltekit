@@ -4,7 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "build",
+    "public": "src",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -12,7 +12,7 @@
     ],
     "rewrites": [{
       "source": "**",
-      "destination": "/index.html"
+      "destination": "/app.html"
     }],
     "frameworksBackend": {
       "region": "asia-east1"
