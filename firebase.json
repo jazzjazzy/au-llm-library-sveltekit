@@ -4,18 +4,15 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "src",
+    "source": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [{
-      "source": "**",
-      "destination": "/app.html"
-    }],
     "frameworksBackend": {
-      "region": "asia-east1"
+      "region": "asia-east1",
+      "maxInstances": 1
     }
   },
   "storage": {
