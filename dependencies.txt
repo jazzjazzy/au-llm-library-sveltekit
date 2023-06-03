@@ -1,0 +1,17 @@
+@firebase/app
+@firebase/firestore
+@pinecone-database/pinecone
+canvas
+firebase
+firebase-functions
+firebase-tools
+keyword-extractor
+langchain
+pdf-lib
+pdf-parse
+pdfjs-dist
+serpapi
+svelte-adapter-firebase
+svelte-canvas
+svelte-routing
+svelte-store

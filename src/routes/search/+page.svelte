@@ -105,16 +105,16 @@
         box-shadow: none;
     }
 
-    /*    body {
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-size: 1.5rem;
-            background-color: #222222;
-        }*/
+/*    body {
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-size: 1.5rem;
+        background-color: #222222;
+    }*/
 </style>
 <div class="w-1/2 mx-auto content-center ">
     <div class="content-center">

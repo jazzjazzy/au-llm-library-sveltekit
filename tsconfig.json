@@ -8,7 +8,15 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
-		"strict": true
+		"strict": true,
+		"moduleResolution": "NodeNext",
+		"baseUrl": "./",
+		"paths": {
+			"$lib": ["./src/lib"],
+			"$lib/*": ["./src/lib/*"],
+			"$firebase": ["./src/firebase"],
+			"$firebase/*": ["./src/firebase/*"]
+		}
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//
