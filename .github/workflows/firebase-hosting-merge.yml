@@ -20,7 +20,3 @@ jobs:
           projectId: australian-library
     env:
       FIREBASE_CLI_EXPERIMENTS: webframeworks
-      VITE_OPENAI_API_KEY: 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,
-      VITE_SERPAPI_API_KEY: e48a947f1abeab9aaa4061587f2b90f362dbd6dd8751e39fc15b593edab36c0e
-      VITE_PINECONE_API_KEY: = 64fc4798-3790-4bd3-80f1-3bfd2de38f58
-      VITE_PINECONE_ENV: = asia-southeast1-gcp
