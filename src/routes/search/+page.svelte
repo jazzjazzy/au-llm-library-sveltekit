@@ -4,7 +4,7 @@
     import {db} from '$firebase/firebase.ts';
     import {getDocs, collectionGroup, query, where} from '@firebase/firestore';
     import type {DocumentData} from '@firebase/firestore';
-    import {getImageUrl, getDocumantUrl} from '$lib/helper/firebaseStorage.ts';
+    import {getImageUrl, getDocumentUrl} from '$lib/helper/firebaseStorage.ts';
     import UploadButton from "$lib/UploadButton.svelte";
     import Icon from "@iconify/svelte";
     import {FileButton} from "@skeletonlabs/skeleton";
@@ -31,7 +31,7 @@
 
                 const data = doc.data();
                 const imageUrl = await getImageUrl(data.thumbnail);
-                const documentUrl = await getDocumantUrl(data.path + data.selecedFile);
+                const documentUrl = await getDocumentUrl(data.path + data.selecedFile);
                 return {id: doc.id, imageUrl, documentUrl, ...data};
             }));
 

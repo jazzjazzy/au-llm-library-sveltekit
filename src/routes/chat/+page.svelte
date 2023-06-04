@@ -57,8 +57,8 @@
 
         //add the spinner to the conversation
         let svg = createSpinnerSVG();
-        const spinner = document.createElement("span");
-        spinner.setAttribute("class", "flex items-center justify-center");
+        const spinner = document.createElement("div");
+        spinner.classList.add("class", "flex","items-center", "justify-center");
         spinner.appendChild(svg);
 
         responseBody.appendChild(spinner);
@@ -171,7 +171,8 @@
 
 </style>
 <main>
-    <div class="w-1/2 h-screen mx-auto content-center grid grid-rows-6">
+
+    <div class=" h-screen mx-auto content-center grid grid-rows-6 xs:w-1/2 p-4 sm:3/4 lg:w-2/3 ">
         <div class="flex flex-grow container col-span-full w-full row-span-5">
             <a href="\" class="py-3 text-lg z-10">
                 <Icon class="text-4xl"icon="ph:arrow-left" />
@@ -186,7 +187,7 @@
                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Question</label>
                 <textarea on:keydown={handleKeyPress} id="questionInput" rows="4"
                           class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder="Write your thoughts here...">what is this?</textarea>
+                          placeholder="Write your thoughts here..."></textarea>
             </form>
         </div>
     </div>

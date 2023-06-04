@@ -1,5 +1,7 @@
 export function createSpinnerSVG(){
 
+    const spinnerDiv = document.createElement("div");
+    spinnerDiv.classList.add("p-1", "m-1");
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("aria-hidden", "true");
     svg.setAttribute("class", "w-5 h-5 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600");
@@ -16,7 +18,7 @@ export function createSpinnerSVG(){
 
     svg.appendChild(path1)
     svg.appendChild(path2);
-
-    return svg
+    spinnerDiv.appendChild(svg);
+    return spinnerDiv
 
 }

@@ -12,7 +12,8 @@
     ],
     "frameworksBackend": {
       "region": "asia-east1",
-      "maxInstances": 1
+      "maxInstances": 1,
+      "memory": "1GB"
     }
   },
   "storage": {
@@ -29,7 +30,8 @@
       "port": 8089
     },
     "ui": {
-      "enabled": false
+      "enabled": true,
+      "port": 9000
     },
     "singleProjectMode": true
   }
