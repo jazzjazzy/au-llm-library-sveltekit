@@ -1,14 +1,20 @@
 <script lang="ts">
 
+    import { onMount } from 'svelte';
     import { createSpinnerSVG } from "$lib/spinner.helper.js";
     import { db } from "$firebase/firebase.js";
     import {collectionGroup, getDocs, query, where} from "@firebase/firestore";
     import { getStorage, ref, getDownloadURL } from "firebase/storage";
-    import {getImageUrl} from "$lib/helper/firebaseStorage.js";
     import Icon from '@iconify/svelte';
 
     // keep track of the conversation
     let existingConversation = [];
+    let scrollContainer;
+
+    onMount(() => {
+        scrollContainer = document.getElementById('responseBody');
+    });
+
 
     async function handleSubmit(event: Event) {
         event.preventDefault();
@@ -38,6 +44,9 @@
 
         //add the answer to the conversation
         addAnswerBlock(body.answer, body.publications)
+
+        //scroll to the bottom of the div
+        scrollContainer.scrollTop = scrollContainer.scrollHeight;
     }
 
     function addQuestionBlock(questionText){
@@ -62,6 +71,9 @@
         spinner.appendChild(svg);
 
         responseBody.appendChild(spinner);
+
+        //scroll to the bottom of the div
+        scrollContainer.scrollTop = scrollContainer.scrollHeight;
     }
 
     async function addAnswerBlock(answerText, publications = []){
@@ -87,6 +99,9 @@
 
         answerContainer.appendChild(answer);
         responseBody.appendChild(answerContainer);
+
+        //scroll to the bottom of the div
+        scrollContainer.scrollTop = scrollContainer.scrollHeight;
     }
 
     async function getPublicationPills(publications){
@@ -125,50 +140,20 @@
         }
     }
 
-/*
-    function formatConversation(conversation) {
-        let formattedConversation = '';
-
-        conversation.forEach((item) => {
-            if (item.role === 'system') {
-                if (item.content) {
-                    formattedConversation += `System: ${item.content}\n<br />`;
-                } else if (item.response && item.response.text) {
-                    formattedConversation += `System response: ${item.response.text}\n<br />`;
-                }
-            } else if (item.role === 'user') {
-                formattedConversation += `User: ${item.content}\n<br />`;
-            }
-        });
-
-        return formattedConversation;
-    }
-*/
-
-
 </script>
 
 <style>
-    /*
-    #searchInput {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        !* other styles you want to apply *!
-    }
-    */
-
     .container {
-        position: relative;
-        //height: 300px; /* Set the desired height of the container */
-        overflow-y: auto;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto; /* Enable vertical scrolling */
     }
 
     .content {
-        position: absolute;
-        bottom: 0;
+        flex-grow: 1;
+        overflow-y: auto; /* Enable vertical scrolling */
     }
-
 </style>
 <main>
 
