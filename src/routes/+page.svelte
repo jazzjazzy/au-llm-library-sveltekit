@@ -210,69 +210,74 @@
         </a>
       {/each}
     </div>
-    <div>
-      <h1>So what is this?</h1>
-      <p>
-        It's a tool I made to help anyone understand the 2023-24 national Australian budget by asking questions and getting answers.
-        There are two sections to this tool:
-      </p>
-      <ol>
-        <li>
-          <strong>Keyword Lookup:</strong> The search bar above allows you to search the budget PDF for keywords. It will return any documents that match the search query.
-        </li>
-        <li>
-          <strong>Chatbot:</strong> You can access the chatbot by clicking on the chat icon  (<a href="/chat/" class="p-0 m-0"><Icon width="1em" height="1em" class="inline" icon="bi:chat" /></a>). The chatbot allows you to ask questions about the budget and get answers.
-        </li>
-      </ol>
-      <p>
-        Feel free to explore both sections and make the most of this tool!
-      </p>
-      <h1>Why did I make this?</h1>
-      <p>I was looking for a project to work on and I thought it would be interesting to see if I could make a chatbot that could answer questions about the budget.
-        I also wanted to use some new technologies that where a bit out there but seemed interesting. So I decided to use Svelte/sveltekit, pineCone vector database, tailwindcss, firebase hosting, firebase storage, firebase firestore </p>
+  </div>
+  <div>
+    <h1>So what is this?</h1>
+    <p>
+      It's a tool I made to help anyone understand the 2023-24 national Australian budget by asking questions and getting answers.
+      There are two sections to this tool:
+    </p>
+    <ol>
+      <li>
+        <strong>Keyword Lookup:</strong> The search bar above allows you to search the budget PDF for keywords. It will return any documents that match the search query.
+      </li>
+      <li>
+        <strong>Chatbot:</strong> You can access the chatbot by clicking on the chat icon  (<a href="/chat/" class="p-0 m-0"><Icon width="1em" height="1em" class="inline" icon="bi:chat" /></a>). The chatbot allows you to ask questions about the budget and get answers.
+      </li>
+    </ol>
+    <p class="my-3 text-amber-200">
+      <Icon width="1em" height="1em" class="inline" icon="noto:warning" /> Please note this advanced chatbot utilizes its extensive
+      knowledge base and powerful algorithms to assist users in understanding various aspects of the budget. However, it's important
+      to note that despite its best efforts, the chatbot may have limitations and occasionally generate incorrect information.
+      As with any automated system, there is always the possibility of inaccuracies or outdated data. Therefore, users are <strong class="underline">highly</strong> encouraged
+      to verify the information obtained.
+    </p>
+    <p>
+      Feel free to explore both sections and make the most of this tool!
+    </p>
+    <h1>Why did I make this?</h1>
+    <p>I was looking for a project to work on and I thought it would be interesting to see if I could make a chatbot that could answer questions about the budget.
+      I also wanted to use some new technologies that where a bit out there but seemed interesting. So I decided to use Svelte/sveltekit, pineCone vector database, tailwindcss, firebase hosting, firebase storage, firebase firestore </p>
 
-      <h2>Svelte/Sveltekit</h2>
-      <p>
-        Svelte is a javascript framework that is similar to react and vue. It is a compiler that compiles your code into vanilla javascript. This means that you don't need to include a framework in your final build.
-        This makes the final build smaller and faster. Sveltekit is a framework that is built on top of svelte. It allows you to build a website using svelte. It has only come out of beta in Dec 22 but it is very
-        easy to use and I would recommend it.
-      </p>
+    <h2>Svelte/Sveltekit</h2>
+    <p>
+      Svelte is a javascript framework that is similar to react and vue. It is a compiler that compiles your code into vanilla javascript. This means that you don't need to include a framework in your final build.
+      This makes the final build smaller and faster. Sveltekit is a framework that is built on top of svelte. It allows you to build a website using svelte. It has only come out of beta in Dec 22 but it is very
+      easy to use and I would recommend it.
+    </p>
 
-      <h2>TailwindCss</h2>
-      <p>
-        TailwindCss is a css framework that allows you to build a website using css classes. It is very easy to use and allows you to build a website very quickly. It also allows you to build a website that is responsive
-        and looks good on all devices. This was the only thing I had used before this project but only a couple months earlier.
-      </p>
+    <h2>TailwindCss</h2>
+    <p>
+      TailwindCss is a css framework that allows you to build a website using css classes. It is very easy to use and allows you to build a website very quickly. It also allows you to build a website that is responsive
+      and looks good on all devices. This was the only thing I had used before this project but only a couple months earlier.
+    </p>
 
-      <h2>FireBase</h2>
-      <p>
-        so firebase is just a google product that give you an simple and easy interface to utilise their google cloud services and is free and easy to use. for this project
-        I used firebase storage to store the PDFs and images, firestore to store the metadata. and firebase hosting to host the website.
-      </p>
+    <h2>FireBase</h2>
+    <p>
+      so firebase is just a google product that give you an simple and easy interface to utilise their google cloud services and is free and easy to use. for this project
+      I used firebase storage to store the PDFs and images, firestore to store the metadata. and firebase hosting to host the website.
+    </p>
 
-      <h2>PineCone Vector database</h2>
-      <p>
-        we use PineCone to store the embedding vectors for each document. PineCone is a vector database that allows you to store and search for vectors. This is not the same as a relational database,
-        when we create embedding this changes the test to a series of number that represent the text. so we can't use a relational database to store these vectors. when we search for a question we convert the question
-        to a vector and then search the vector database for the closest vectors to the keyword vector.
-      </p>
+    <h2>PineCone Vector database</h2>
+    <p>
+      we use PineCone to store the embedding vectors for each document. PineCone is a vector database that allows you to store and search for vectors. This is not the same as a relational database,
+      when we create embedding this changes the test to a series of number that represent the text. so we can't use a relational database to store these vectors. when we search for a question we convert the question
+      to a vector and then search the vector database for the closest vectors to the keyword vector.
+    </p>
 
-      <h2>LangChain</h2>
-      <p>
-        LangChain is a python/javascript library that allows is the work horse of this project. It allows us to extract the text from the PDF, convert the text to embedding vectors and chain together chatGPT and pineCone,
-        We use it to extract the text from the PDF, convert the text to embedding vectors store in pineCone. when we ask a question we convert the question to a vector and then search pineCone for the closest vectors to
-        the question vector and then we use chatGPT to generate a response to the question based on responses from pinecone
-      </p>
+    <h2>LangChain</h2>
+    <p>
+      LangChain is a python/javascript library that allows is the work horse of this project. It allows us to extract the text from the PDF, convert the text to embedding vectors and chain together chatGPT and pineCone,
+      We use it to extract the text from the PDF, convert the text to embedding vectors store in pineCone. when we ask a question we convert the question to a vector and then search pineCone for the closest vectors to
+      the question vector and then we use chatGPT to generate a response to the question based on responses from pinecone
+    </p>
 
-      <h2>Where can I see the code </h2>
-      <p>
-        The code for this project is available on github <a href="https://github.com/jazzjazzy/au-llm-library-sveltekit" target="_blank" rel="noopener"> <Icon width="2em" height="2em" class="inline ml-2 mr-1 text-white" icon="arcticons:github" />https://github.com/jazzjazzy/au-llm-library-sveltekit</a>
-      </p>
-
-    </div>
+    <h1>Where can I see the code </h1>
+    <p>
+      The code for this project is available on github <a href="https://github.com/jazzjazzy/au-llm-library-sveltekit" target="_blank" rel="noopener"> <Icon width="2em" height="2em" class="inline ml-2 mr-1 text-white" icon="arcticons:github" />https://github.com/jazzjazzy/au-llm-library-sveltekit</a>
+    </p>
 
   </div>
-
 </div>
 
 
